@@ -47,7 +47,7 @@ Luego, abre `index.html` en tu navegador preferido.
 ## 📌 Mejoras futuras
 
 - Agregar estilos más atractivos.
-- Permitir eliminar participantes de la lista.
+- No permitir usar carácteres numéricos o simbólicos en los nombres.
 - Implementar una animación para el sorteo.
 
 ## 📝 Autor
