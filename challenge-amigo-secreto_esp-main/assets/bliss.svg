@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+
+    <!-- Cielo: azul profundo arriba, celeste claro en el horizonte -->
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#1050A0"/>
+      <stop offset="30%"  stop-color="#2870C4"/>
+      <stop offset="60%"  stop-color="#4A9CE0"/>
+      <stop offset="85%"  stop-color="#78BEF0"/>
+      <stop offset="100%" stop-color="#9ED2FA"/>
+    </linearGradient>
+
+    <!-- Colina principal: verde brillante arriba, más oscuro abajo -->
+    <linearGradient id="hillMain" x1="0.3" y1="0" x2="0.7" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#72D038"/>
+      <stop offset="35%"  stop-color="#56B420"/>
+      <stop offset="100%" stop-color="#3A8A0E"/>
+    </linearGradient>
+
+    <!-- Colinas de fondo: más oscuras y apagadas -->
+    <linearGradient id="hillBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#2E6E10"/>
+      <stop offset="100%" stop-color="#1E4E08"/>
+    </linearGradient>
+
+    <!-- Primer plano: verde intenso -->
+    <linearGradient id="fgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#66C82C"/>
+      <stop offset="100%" stop-color="#4CAE18"/>
+    </linearGradient>
+
+    <!-- Brillo solar sutil (esquina superior derecha) -->
+    <radialGradient id="sunGlow" cx="70%" cy="25%" r="45%">
+      <stop offset="0%"   stop-color="rgba(255,245,200,0.18)"/>
+      <stop offset="100%" stop-color="rgba(255,245,200,0)"/>
+    </radialGradient>
+
+    <!-- Filtro desenfoque para nubes suaves -->
+    <filter id="cloudBlur" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+
+  </defs>
+
+  <!-- ═══ CIELO ═══════════════════════════════════════════════ -->
+  <rect width="1440" height="900" fill="url(#skyGrad)"/>
+
+  <!-- Brillo solar -->
+  <rect width="1440" height="900" fill="url(#sunGlow)"/>
+
+  <!-- ═══ NUBES ═════════════════════════════════════════════════
+       Cada nube: grupo de elipses superpuestas, desenfocadas     -->
+
+  <!-- Nube grande izquierda -->
+  <g filter="url(#cloudBlur)" opacity="0.93">
+    <ellipse cx="290" cy="198" rx="175" ry="58"  fill="#FFFFFF"/>
+    <ellipse cx="230" cy="218" rx="110" ry="44"  fill="#FFFFFF"/>
+    <ellipse cx="340" cy="213" rx="140" ry="48"  fill="#FFFFFF"/>
+    <ellipse cx="420" cy="208" rx="90"  ry="36"  fill="#FFFFFF"/>
+    <ellipse cx="175" cy="210" rx="75"  ry="30"  fill="#FFFFFF"/>
+    <!-- sombra suave inferior -->
+    <ellipse cx="295" cy="248" rx="150" ry="22"  fill="#C8E4F4" opacity="0.55"/>
+  </g>
+
+  <!-- Nube mediana superior derecha -->
+  <g filter="url(#cloudBlur)" opacity="0.85">
+    <ellipse cx="1120" cy="148" rx="130" ry="44" fill="#FFFFFF"/>
+    <ellipse cx="1070" cy="165" rx="88"  ry="34" fill="#FFFFFF"/>
+    <ellipse cx="1175" cy="160" rx="100" ry="36" fill="#FFFFFF"/>
+    <ellipse cx="1220" cy="155" rx="70"  ry="28" fill="#FFFFFF"/>
+    <ellipse cx="1115" cy="188" rx="112" ry="18" fill="#CCE2F2" opacity="0.5"/>
+  </g>
+
+  <!-- Nube pequeña derecha, más baja -->
+  <g filter="url(#cloudBlur)" opacity="0.70">
+    <ellipse cx="1310" cy="268" rx="95"  ry="30" fill="#FFFFFF"/>
+    <ellipse cx="1260" cy="282" rx="62"  ry="23" fill="#FFFFFF"/>
+    <ellipse cx="1360" cy="278" rx="72"  ry="25" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Nube muy tenue centro-derecha (lejanía) -->
+  <g filter="url(#cloudBlur)" opacity="0.45">
+    <ellipse cx="840"  cy="230" rx="110" ry="28" fill="#FFFFFF"/>
+    <ellipse cx="790"  cy="245" rx="70"  ry="20" fill="#FFFFFF"/>
+    <ellipse cx="900"  cy="243" rx="80"  ry="22" fill="#FFFFFF"/>
+  </g>
+
+  <!-- ═══ COLINAS TRASERAS (oscuras, lejanía) ════════════════════ -->
+  <path d="
+    M -50,600
+    C  80,555  180,535  300,538
+    C 420,541  520,520  640,510
+    C 760,500  870,508  990,505
+    C 1110,502 1220,518 1350,535
+    C 1410,543 1450,552 1490,565
+    L 1490,900 L -50,900 Z"
+    fill="url(#hillBack)"/>
+
+  <!-- ═══ COLINA IZQUIERDA SECUNDARIA ════════════════════════════ -->
+  <path d="
+    M -50,680
+    C  30,640  90,610  160,598
+    C 240,585  310,590  380,610
+    C 430,625  460,645  490,670
+    L 490,900 L -50,900 Z"
+    fill="#32720E"/>
+
+  <!-- ═══ COLINA DERECHA SECUNDARIA ══════════════════════════════ -->
+  <path d="
+    M 1490,680
+    C 1400,635 1320,598 1230,582
+    C 1150,568 1080,578 1020,600
+    C 980,614  960,635  950,660
+    L 950,900 L 1490,900 Z"
+    fill="#2E6A0C"/>
+
+  <!-- ═══ COLINA PRINCIPAL (la cúpula icónica del "Bliss") ════════ -->
+  <path d="
+    M -50,740
+    C  60,700  160,660  290,628
+    C 380,608  460,590  540,568
+    C 620,548  680,532  740,522
+    C 800,512  855,510  910,515
+    C 970,522 1030,538 1100,562
+    C 1170,586 1250,618 1340,658
+    C 1400,685 1450,708 1490,730
+    L 1490,900 L -50,900 Z"
+    fill="url(#hillMain)"/>
+
+  <!-- Reflejo luminoso sobre la colina principal (lado soleado) -->
+  <path d="
+    M 560,570
+    C 630,545  700,530  770,525
+    C 830,520  890,522  950,530"
+    fill="none"
+    stroke="rgba(160,240,90,0.28)"
+    stroke-width="50"
+    stroke-linecap="round"/>
+
+  <!-- ═══ PRIMER PLANO ════════════════════════════════════════════ -->
+  <path d="
+    M -50,820
+    C 150,788  350,778  530,784
+    C 700,790  880,772  1060,778
+    C 1230,784 1370,796 1490,818
+    L 1490,900 L -50,900 Z"
+    fill="url(#fgGrad)"/>
+
+</svg>

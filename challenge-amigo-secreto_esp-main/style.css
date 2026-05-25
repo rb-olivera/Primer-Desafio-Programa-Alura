@@ -1,162 +1,484 @@
+/* ============================================================
+   Windows XP "Luna Blue" Theme  —  Amigo Secreto
+   Rebeca Olivera · Programa ONE — Alura
+   ============================================================ */
+
+/* ── Fuente del sistema XP ─────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Tahoma&display=swap');
+
+/* ── Variables de color XP Luna ────────────────────────────── */
 :root {
-    --color-primary: #4B69FD;
-    --color-secondary: #FFF9EB;
-    --color-tertiary: #C4C4C4;
-    --color-button: #fe652b;
-    --color-button-hover: #e55720;
-    --color-text: #444444;
-    --color-white: #FFFFFF;
+    /* Ventana */
+    --xp-win-bg:        #ECE9D8;
+    --xp-win-border1:   #FFFFFF;
+    --xp-win-border2:   #848284;
+
+    /* Barra de título */
+    --xp-title-top:     #0058E6;
+    --xp-title-mid:     #3593E1;
+    --xp-title-bot:     #0950A8;
+
+    /* Botones */
+    --xp-btn-face:      #D4D0C8;
+    --xp-btn-hi:        #FFFFFF;
+    --xp-btn-shadow:    #808080;
+    --xp-btn-dark:      #404040;
+
+    /* Primario (azul) */
+    --xp-primary-top:   #5B9BD5;
+    --xp-primary-bot:   #1E5799;
+
+    /* Input */
+    --xp-input-bg:      #FFFFFF;
+
+    /* Texto */
+    --xp-text:          #000000;
+    --xp-text-label:    #000000;
+
+    /* Resultado */
+    --xp-result-bg:     #EEF4FF;
+    --xp-result-border: #0A246A;
+    --xp-result-text:   #0A246A;
 }
 
-/* Estilos generales */
-* {
+/* ── Reset mínimo ───────────────────────────────────────────── */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ── Escritorio (fondo "Bliss") ─────────────────────────────── */
 body {
-    height: 100vh;
-    background-color: var(--color-primary);
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 11px;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* Cielo y colinas tipo "Bliss" con CSS puro */
+    background:
+        /* colinas */
+        radial-gradient(ellipse 160% 55% at 50% 106%,
+            #4a9632 0%, #3a7c22 30%, transparent 65%),
+        radial-gradient(ellipse 120% 40% at 30% 112%,
+            #5ab840 0%, #3a8820 40%, transparent 60%),
+        radial-gradient(ellipse 100% 35% at 75% 108%,
+            #3e8e28 0%, transparent 55%),
+        /* cielo */
+        linear-gradient(180deg,
+            #1C64B4 0%, #3A8BDE 35%, #5BA8EE 60%,
+            #7EC1F8 80%, #A8D8FF 100%);
+    background-color: #5BA8EE;
 }
 
-.main-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+/* ── Ventana ────────────────────────────────────────────────── */
+.xp-window {
+    width: 480px;
+    background-color: var(--xp-win-bg);
+    border: 3px solid;
+    border-color: var(--xp-win-border1) var(--xp-win-border2)
+                  var(--xp-win-border2) var(--xp-win-border1);
+    border-radius: 8px 8px 4px 4px;
+    box-shadow:
+        inset 1px 1px 0 rgba(255,255,255,.6),
+        3px 3px 12px rgba(0,0,0,.5);
+    overflow: hidden;
 }
 
-/* Banner */
-.header-banner {
-    flex: 40%;
+/* ── Barra de título ────────────────────────────────────────── */
+.xp-titlebar {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 40px 0 0;
+    height: 30px;
+    padding: 0 4px 0 6px;
+    gap: 5px;
+    border-radius: 6px 6px 0 0;
+    background:
+        /* brillo superior fino */
+        linear-gradient(180deg,
+            rgba(255,255,255,.28) 0%,
+            rgba(255,255,255,.00) 4px),
+        /* gradiente principal */
+        linear-gradient(180deg,
+            #1B6BE0 0%,
+            #2F8EE8 15%,
+            #0B52B4 25%,
+            #0A4AAC 70%,
+            #0B52B4 94%,
+            #0C5CC0 100%);
+    user-select: none;
+    cursor: default;
 }
 
-/* Sección de entrada */
-.input-section {
-    flex: 60%;
-    background-color: var(--color-secondary);
-    border: 1px solid #000;
-    border-radius: 64px 64px 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
+.xp-titlebar-icon {
+    font-size: 15px;
+    line-height: 1;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
 }
 
-/* Títulos */
-.main-title {
-    font-size: 48px;
-    font-family: "Merriweather", serif;
-    font-weight: 900;
-    font-style: italic;
-    color: var(--color-white);
-}
-
-.section-title {
-    font-family: "Inter", serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin: 10px 0;
-    text-align: center;
-}
-
-/* Contenedores de entrada y botón */
-.input-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
-}
-
-.input-name {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #000;
-    border-radius: 25px 0 0 25px;
-    font-size: 16px;
-}
-
-.button-container {
-    width: 300px;
-    justify-content: center;
-}
-
-/* Estilos de entrada de texto */
-.input-title {
+.xp-titlebar-title {
     flex: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #333;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    font-family: "Merriweather", serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Estilos de botón */
-button {
-    padding: 15px 30px;
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    border: 2px solid #000;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
-.button-add {
-    background-color: var(--color-tertiary);
-    color: var(--color-text);
-    border-radius: 0 25px 25px 0;
-}
-
-.button-add:hover {
-    background-color: #a1a1a1;
-}
-
-/* Listas */
-ul {
-    list-style-type: none;
-    color: var(--color-text);
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
-    margin: 20px 0;
-}
-
-.result-list {
-    margin-top: 15px;
-    color: #05DF05;
-    font-size: 22px;
+    color: #FFFFFF;
+    font-size: 12px;
     font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.6);
+    letter-spacing: .3px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* ── Controles de ventana ───────────────────────────────────── */
+.xp-window-controls {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.xp-btn {
+    width: 22px;
+    height: 21px;
+    padding: 0;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: "Marlett", Tahoma, sans-serif;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    border-color: rgba(255,255,255,.8) rgba(0,0,0,.4)
+                  rgba(0,0,0,.4) rgba(255,255,255,.8);
+    border-radius: 3px;
+    background: linear-gradient(180deg,
+        #EEE9E1 0%, #D8D4CC 50%, #CCCAC2 51%, #D8D4CC 100%);
+    color: var(--xp-text);
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,.7);
+    transition: filter .1s;
+}
+
+.xp-btn:hover { filter: brightness(1.08); }
+.xp-btn:active {
+    border-color: rgba(0,0,0,.4) rgba(255,255,255,.8)
+                  rgba(255,255,255,.8) rgba(0,0,0,.4);
+    box-shadow: none;
+    padding-top: 1px;
+    padding-left: 1px;
+}
+
+.xp-btn-close {
+    background: linear-gradient(180deg, #E07050 0%, #C84030 50%, #B83020 51%, #C84030 100%);
+    color: #fff;
+}
+.xp-btn-close:hover { background: linear-gradient(180deg, #F08060 0%, #D85040 50%, #C84030 51%, #D85040 100%); }
+
+/* ── Contenido ──────────────────────────────────────────────── */
+.xp-content {
+    padding: 14px 14px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ── Etiqueta ───────────────────────────────────────────────── */
+.xp-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+    color: var(--xp-text-label);
+}
+
+/* ── Fila de input ──────────────────────────────────────────── */
+.xp-input-row {
+    display: flex;
+    gap: 5px;
+}
+
+.xp-input {
+    flex: 1;
+    height: 22px;
+    padding: 2px 5px;
+    font-family: Tahoma, sans-serif;
+    font-size: 11px;
+    color: var(--xp-text);
+    background: var(--xp-input-bg);
+    border: 2px solid;
+    border-color: #7A7672 #E8E4E0 #E8E4E0 #7A7672;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,.18);
+    outline: none;
+    border-radius: 0;
+}
+
+.xp-input:focus {
+    border-color: #0A246A #C0BCBA #C0BCBA #0A246A;
+    box-shadow: inset 1px 1px 3px rgba(10,36,106,.2);
+}
+
+/* ── Botón genérico ─────────────────────────────────────────── */
+.xp-button {
+    height: 23px;
+    padding: 0 14px;
+    font-family: Tahoma, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    cursor: pointer;
+    color: var(--xp-text);
+    background: linear-gradient(180deg,
+        #F0EDE5 0%, #D8D4CC 45%, #CCCAC2 46%, #D8D4CC 100%);
+    border: 1px solid;
+    border-color: #FFFFFF #848080 #848080 #FFFFFF;
+    box-shadow:
+        inset  1px  1px 0 rgba(255,255,255,.8),
+        inset -1px -1px 0 rgba(0,0,0,.15),
+         1px  1px 0 rgba(0,0,0,.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    white-space: nowrap;
+    min-width: 75px;
+    user-select: none;
+    transition: filter .1s;
+}
+
+.xp-button:hover { filter: brightness(1.05); }
+
+.xp-button:active {
+    border-color: #848080 #FFFFFF #FFFFFF #848080;
+    background: linear-gradient(180deg,
+        #C8C4BC 0%, #D8D4CC 100%);
+    box-shadow: none;
+    padding-top: 1px;
+}
+
+/* ── Botón primario (azul) ──────────────────────────────────── */
+.xp-button-primary {
+    color: #fff;
+    font-weight: bold;
+    background: linear-gradient(180deg,
+        #5B9EDE 0%, #2070C8 45%, #1660B8 46%, #2070C8 100%);
+    border-color: #FFFFFF #1040A0 #1040A0 #FFFFFF;
+    box-shadow:
+        inset  1px  1px 0 rgba(255,255,255,.5),
+        inset -1px -1px 0 rgba(0,0,0,.2),
+         1px  1px 0 rgba(0,0,0,.25);
+    min-width: 130px;
+}
+
+.xp-button-primary:hover {
+    background: linear-gradient(180deg,
+        #6BAEEE 0%, #3080D8 45%, #2070C8 46%, #3080D8 100%);
+    filter: none;
+}
+
+.xp-button-primary:active {
+    background: linear-gradient(180deg,
+        #1660B8 0%, #2070C8 100%);
+    border-color: #1040A0 #FFFFFF #FFFFFF #1040A0;
+}
+
+/* ── Fieldset estilo XP ─────────────────────────────────────── */
+.xp-fieldset {
+    border: 1px solid;
+    border-color: #848080 #FFFFFF #FFFFFF #848080;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,.5);
+    background: var(--xp-win-bg);
+    padding: 6px 8px 8px;
+    border-radius: 0;
+    min-height: 70px;
+    max-height: 170px;
+    overflow-y: auto;
+}
+
+.xp-legend {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--xp-text);
+    padding: 0 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.xp-badge {
+    background: #0A246A;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 0 5px;
+    border-radius: 8px;
+    min-width: 18px;
+    text-align: center;
+    display: inline-block;
+    line-height: 15px;
+}
+
+/* ── Lista de participantes ─────────────────────────────────── */
+.xp-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.xp-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 4px;
+    font-size: 11px;
+    color: var(--xp-text);
+    border-bottom: 1px dotted #C8C4BC;
+    gap: 6px;
+}
+
+.xp-list li:last-child { border-bottom: none; }
+
+.xp-list li:hover { background: #D0D8F0; }
+
+.xp-list li .name-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.xp-list li .name-text::before {
+    content: "▶";
+    color: #0A246A;
+    font-size: 8px;
+}
+
+/* Botón eliminar ────────────────────────────────────────────── */
+.xp-delete-btn {
+    width: 18px;
+    height: 17px;
+    min-width: unset;
+    padding: 0;
+    font-size: 10px;
+    font-weight: bold;
+    color: #8B0000;
+    background: linear-gradient(180deg, #EEDCD8 0%, #D4C8C4 100%);
+    border: 1px solid;
+    border-color: #FFFFFF #808080 #808080 #FFFFFF;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,.7);
+    flex-shrink: 0;
+    font-family: Tahoma, sans-serif;
+}
+
+.xp-delete-btn:hover {
+    background: linear-gradient(180deg, #FFEEEC 0%, #E8D0CC 100%);
+    color: #CC0000;
+}
+
+.xp-delete-btn:active {
+    border-color: #808080 #FFFFFF #FFFFFF #808080;
+    box-shadow: none;
+}
+
+/* Hint lista vacía ─────────────────────────────────────────── */
+.xp-empty-hint {
+    font-size: 11px;
+    color: #808080;
+    font-style: italic;
+    padding: 6px 0 2px;
     text-align: center;
 }
 
-/* Botón de sortear título */
-.button-draw {
+/* ── Caja de resultado ──────────────────────────────────────── */
+.xp-result-box {
+    border: 2px solid var(--xp-result-border);
+    background: var(--xp-result-bg);
+    padding: 10px 14px;
+    box-shadow:
+        inset 1px 1px 4px rgba(10,36,106,.15),
+        1px 1px 3px rgba(0,0,0,.2);
+    animation: xpPop .3s cubic-bezier(.22,.68,0,1.2) both;
+}
+
+@keyframes xpPop {
+    from { transform: scale(.85); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+.xp-result-inner {
     display: flex;
     align-items: center;
-    width: 100%;
-    padding: 10px 40px;
-    color: var(--color-white);
-    background-color: var(--color-button);
+    justify-content: center;
+    gap: 10px;
+}
+
+.xp-result-icon {
+    font-size: 26px;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,.25));
+}
+
+.xp-result-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--xp-result-text);
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+}
+
+.xp-result-text strong {
     font-size: 16px;
+    color: #0A246A;
+    text-decoration: underline;
+    text-decoration-color: rgba(10,36,106,.35);
 }
 
-.button-draw img {
-    margin-right: 40px;
+/* ── Fila de botones ────────────────────────────────────────── */
+.xp-button-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding-top: 2px;
 }
 
-.button-draw:hover {
-    background-color: var(--color-button-hover);
+/* ── Barra de estado ────────────────────────────────────────── */
+.xp-statusbar {
+    display: flex;
+    align-items: stretch;
+    background: var(--xp-win-bg);
+    border-top: 1px solid #848080;
+    height: 22px;
+    padding: 0 2px;
+    gap: 2px;
 }
+
+.xp-status-panel {
+    flex: 1;
+    font-size: 10px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    border: 1px solid;
+    border-color: #848080 #FFFFFF #FFFFFF #848080;
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,.05);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.xp-status-right {
+    flex: 0 0 120px;
+    justify-content: flex-end;
+}
+
+/* ── Scrollbar estilo XP ────────────────────────────────────── */
+::-webkit-scrollbar          { width: 16px; }
+::-webkit-scrollbar-track    { background: #D4D0C8; border: 1px solid #A8A4A0; }
+::-webkit-scrollbar-thumb    {
+    background: linear-gradient(90deg, #E8E4DC 0%, #CECAC2 40%, #E8E4DC 100%);
+    border: 1px solid;
+    border-color: #FFF #808080 #808080 #FFF;
+    min-height: 20px;
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(90deg, #F0EDE5 0%, #D8D4CC 40%, #F0EDE5 100%); }

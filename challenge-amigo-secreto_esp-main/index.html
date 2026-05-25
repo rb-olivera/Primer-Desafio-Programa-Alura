@@ -4,37 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <title>Amigo Secreto</title>
 </head>
 
 <body>
-    <main class="main-content">
-        <header class="header-banner">
-            <h1 class="main-title">Amigo Secreto</h1>
-            <img src="assets/amigo-secreto.png" alt="Imagen representativa de amigo secreto">
-        </header>
-        
-        <section class="input-section">
-            <h2 class="section-title">Digite el nombre de sus amigos</h2>
-            <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Escribe un nombre">
-                <button class="button-add">Añadir</button>
-            </div>
-           
-            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
+    <!-- Escritorio Windows XP -->
+    <div class="xp-desktop">
 
-            <div class="button-container">
-                <button class="button-draw" aria-label="Sortear amigo secreto">
-                    <img src="assets/play_circle_outline.png" alt="Ícono para sortear">
-                    Sortear amigo
-                </button>
+        <!-- Ventana principal -->
+        <div class="xp-window" id="mainWindow">
+
+            <!-- Barra de título -->
+            <div class="xp-titlebar">
+                <span class="xp-titlebar-icon">🎁</span>
+                <span class="xp-titlebar-title">Amigo Secreto</span>
+                <div class="xp-window-controls">
+                    <button class="xp-btn xp-btn-minimize" title="Minimizar">&#x2014;</button>
+                    <button class="xp-btn xp-btn-maximize" title="Maximizar">&#x25A1;</button>
+                    <button class="xp-btn xp-btn-close" title="Cerrar" id="btnClose">&#x2715;</button>
+                </div>
             </div>
-        </section>
-    </main>
+
+            <!-- Contenido -->
+            <div class="xp-content">
+
+                <!-- Sección de entrada -->
+                <div class="xp-section">
+                    <label for="amigo" class="xp-label">Nombre del participante:</label>
+                    <div class="xp-input-row">
+                        <input
+                            type="text"
+                            id="amigo"
+                            class="xp-input"
+                            placeholder="Escribe un nombre..."
+                            maxlength="50"
+                            autocomplete="off"
+                        >
+                        <button class="xp-button" id="btnAgregar">Añadir</button>
+                    </div>
+                </div>
+
+                <!-- Lista de participantes -->
+                <fieldset class="xp-fieldset">
+                    <legend class="xp-legend">
+                        Participantes &nbsp;<span class="xp-badge" id="contador">0</span>
+                    </legend>
+                    <ul id="listaAmigos" class="xp-list"></ul>
+                    <p class="xp-empty-hint" id="emptyHint">Aún no hay participantes. ¡Agrega nombres!</p>
+                </fieldset>
+
+                <!-- Resultado del sorteo -->
+                <div class="xp-result-box" id="resultBox" style="display:none;">
+                    <div class="xp-result-inner">
+                        <span class="xp-result-icon">🎉</span>
+                        <span class="xp-result-text" id="resultadoTexto"></span>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="xp-button-row">
+                    <button class="xp-button xp-button-primary" id="btnSortear">
+                        <img src="assets/play_circle_outline.png" alt="" width="14" height="14">
+                        Sortear amigo
+                    </button>
+                    <button class="xp-button" id="btnReset">Reiniciar</button>
+                </div>
+
+            </div><!-- /xp-content -->
+
+            <!-- Barra de estado -->
+            <div class="xp-statusbar">
+                <div class="xp-status-panel" id="statusMsg">Listo. Agrega participantes para comenzar.</div>
+                <div class="xp-status-panel xp-status-right" id="statusCount">0 participantes</div>
+            </div>
+
+        </div><!-- /xp-window -->
+
+    </div><!-- /xp-desktop -->
 
     <script src="app.js" defer></script>
 </body>

@@ -52,5 +52,5 @@ Luego, abre `index.html` en tu navegador preferido.
 
 ## 📝 Autor
 
-Proyecto realizado por **Rebeca Olivera**. 🚀✨
+Proyecto realizado por **Rebeca Olivera**.
 
